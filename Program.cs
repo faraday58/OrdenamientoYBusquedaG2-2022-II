@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Diagnostics;
 
 namespace OrdenamientoYBusquedaG2_2022_II
 {
@@ -7,14 +7,43 @@ namespace OrdenamientoYBusquedaG2_2022_II
     {
         static void Main()
         {
+            Stopwatch stopwatch = new Stopwatch();
+
+
             Console.WriteLine("Ingresa el tamaño del vector");
-            int N =int.Parse( Console.ReadLine());
+
+
+            int N = int.Parse(Console.ReadLine());
             int[] A = GeneraAleatoria(N);
             Console.WriteLine("************Desordenada****************");
             Imprime(A);
             Console.WriteLine("************Ordenada*******************");
+
+            stopwatch.Start();
             Ordenamiento.Burbuja(A);
+            stopwatch.Stop();
+
+            Console.WriteLine("Tiempo de ordenamiento es: {0} [ms]", stopwatch.ElapsedMilliseconds);
+
+
+                /*
             Imprime(A);
+
+            A =new int[] {4,5,7,20,40};
+
+            Imprime(A);
+            int indice=Busqueda.Directa(A,100);
+
+            if( indice != -1)
+            {
+                Console.WriteLine("Número encontrado en la posición: {0}", indice);
+            }else
+            {
+                Console.WriteLine("Número no encontrado");
+            }
+
+                */
+
 
             Console.ReadLine();
 
